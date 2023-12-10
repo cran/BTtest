@@ -1,0 +1,17 @@
+dd07fb3591a4fa4b5619b0dd5cf3c900 *DESCRIPTION
+d8d895b2ee5462a6d96467b35b2bf2ae *LICENSE
+dd2fc5764074cf951a698c01da8b6932 *NAMESPACE
+0feb1206065b27992ac70bb5203fe105 *NEWS.md
+d33bb903770fab8c9d908ebc23e2c123 *R/BTtest-package.R
+da4dc1ffa7b2c803197aaaeade1cad3b *R/BTtest.R
+4901a681e2bedb3149ee9e4c2ce6e09f *R/RcppExports.R
+bad41ca5ba27eb4c7ba912d5c36ad944 *R/Sim.R
+c227d34feb0e4bb0c542003fbe40d21e *README.md
+b943a1546a1e17be4eea235ec7b4616b *build/partial.rdb
+174fcd77d4c1b2fce7bf5ae1ebdd64eb *man/BTtest.Rd
+df7f56d2c0ff59e97afde6478c360d47 *man/BaiIPC.Rd
+959adb67e009dfb4b198b3fa1f19a661 *man/sim_DGP.Rd
+2c4b0d3f12b97f3da87cac44c005a056 *src/BTtest-package.cpp
+c89d6b95d18721894ab45341d0fbc7a6 *src/Makevars
+c89d6b95d18721894ab45341d0fbc7a6 *src/Makevars.win
+dbd01ed3deb8e53058c455d0985dc17a *src/RcppExports.cpp
