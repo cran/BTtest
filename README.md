@@ -4,13 +4,18 @@
 # BTtest
 
 <!-- badges: start -->
-<!-- [![CRAN\_Version\_Badge](http://www.r-pkg.org/badges/version/BTtest)](https://cran.r-project.org/package=BTtest) -->
-<!-- [![CRAN\_Downloads\_Badge](https://cranlogs.r-pkg.org/badges/grand-total/BTtest)](https://cran.r-project.org/package=BTtest) -->
 
+[![CRAN_Version_Badge](http://www.r-pkg.org/badges/version/BTtest)](https://cran.r-project.org/package=BTtest)
+[![CRAN_Downloads_Badge](https://cranlogs.r-pkg.org/badges/grand-total/BTtest)](https://cran.r-project.org/package=BTtest)
 [![R-CMD-check](https://github.com/Paul-Haimerl/BTtest/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Paul-Haimerl/BTtest/actions/workflows/R-CMD-check.yaml)
+[![License:MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/mit/)
 <!-- badges: end -->
 
-Conveniently test for the number of common factors in large
+You are analyzing a panel data set and want to determine if the
+cross-sectional units share a linear trend as well as any $I(1)$ or
+$I(0)$ dynamics?
+
+Conveniently test for the number and type of common factors in large
 nonstationary panels using the routine by Barigozzi & Trapani
 ([2022](https://doi.org/10.1080/07350015.2021.1901719)).
 
@@ -20,14 +25,17 @@ You can install the development version of BTtest from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("Paul-Haimerl/BTtest")
+# install.packages('devtools')
+devtools::install_github('Paul-Haimerl/BTtest')
+#> Skipping install of 'BTtest' from a github remote, the SHA1 (b1262865) has not changed since last install.
+#>   Use `force = TRUE` to force installation
+library(BTtest)
 ```
 
-After installation, attach the package as usual:
+The stable version is available on CRAN:
 
 ``` r
-library(BTtest)
+install.packages('BTtest')
 ```
 
 ## Data
@@ -53,7 +61,10 @@ significance level (`alpha`) and whether to use a less (`BT1 = TRUE`) or
 more conservative (`BT1 = FALSE`) eigenvalue scaling scheme:
 
 ``` r
-BTtest(X = X, r_max = 10, alpha = 0.05, BT1 = TRUE)
+BTresult <- BTtest(X = X, r_max = 10, alpha = 0.05, BT1 = TRUE)
+print(BTresult)
+#> r_1_hat r_2_hat r_3_hat 
+#>       1       1       2
 ```
 
 Differences between `BT1 = TRUE/ FALSE`, where `BT1 = TRUE` tends to
@@ -62,15 +73,24 @@ panel includes more than 200 time periods ([Barigozzi & Trapani
 2022](https://doi.org/10.1080/07350015.2021.1901719), sec. 5; [Trapani,
 2018](https://doi.org/10.1080/01621459.2017.1328359), sec. 3).
 
+`BTtest` returns a vector indicating the existence of (i) a factor
+subject to a linear trend ($r_1$), the number of (ii) zero-mean $I(1)$
+factors ($r_2$) and the number of (iii) zero-mean $I(0)$ factors
+($r_3$). Note that only one factor with a linear trend can be
+identified.
+
 ## The Bai ([2004](https://doi.org/10.1016/j.jeconom.2003.10.022)) Integrated Information Criterion
 
-An alternative way of estimating the number of factors in a
-nonstationary panel is the Integrated Information Criterion by Bai
+An alternative way of estimating the total number of factors in a
+nonstationary panel are the Integrated Information Criteria by Bai
 ([2004](https://doi.org/10.1016/j.jeconom.2003.10.022)). The package
 also contains a function to easily evaluate this measure:
 
 ``` r
-BaiIPC(X = X, r_max = 10)
+IPCresult <- BaiIPC(X = X, r_max = 10)
+print(IPCresult)
+#> IPC_1 IPC_2 IPC_3 
+#>     2     2     2
 ```
 
 ## References
