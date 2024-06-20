@@ -8,7 +8,8 @@
 [![CRAN_Version_Badge](http://www.r-pkg.org/badges/version/BTtest)](https://cran.r-project.org/package=BTtest)
 [![CRAN_Downloads_Badge](https://cranlogs.r-pkg.org/badges/grand-total/BTtest)](https://cran.r-project.org/package=BTtest)
 [![R-CMD-check](https://github.com/Paul-Haimerl/BTtest/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Paul-Haimerl/BTtest/actions/workflows/R-CMD-check.yaml)
-[![License:MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/mit/)
+[![License_GPLv3_Badge](https://img.shields.io/badge/License-GPLv3-yellow.svg)](https://www.gnu.org/licenses/gpl-3.0.html)
+[![codecov](https://codecov.io/gh/Paul-Haimerl/BTtest/graph/badge.svg?token=LY14MGFFO8)](https://app.codecov.io/gh/Paul-Haimerl/BTtest)
 <!-- badges: end -->
 
 You are analyzing a panel data set and want to determine if the
@@ -27,7 +28,8 @@ You can install the development version of BTtest from
 ``` r
 # install.packages('devtools')
 devtools::install_github('Paul-Haimerl/BTtest')
-#> Skipping install of 'BTtest' from a github remote, the SHA1 (b1262865) has not changed since last install.
+#> Using GitHub PAT from the git credential store.
+#> Skipping install of 'BTtest' from a github remote, the SHA1 (ab5c0e4f) has not changed since last install.
 #>   Use `force = TRUE` to force installation
 library(BTtest)
 ```
@@ -44,6 +46,7 @@ The `BTtest` packages includes a function that automatically simulates a
 panel with common nonstationary trends:
 
 ``` r
+set.seed(1)
 # Simulate a DGP containing a factor with a linear drift (r1 = 1, d1 = 1 -> drift = TRUE) and 
 # I(1) process (d2 = 1 -> drift_I1 = TRUE), one zero-mean I(1) factor 
 # (r2 = 1 -> r_I1 = 2; since drift_I1 = TRUE) and two zero-mean I(0) factors (r3 = 2 -> r_I0 = 2)
