@@ -22,19 +22,16 @@ nonstationary panels using the routine by Barigozzi & Trapani
 
 ## Installation
 
-You can install the development version of BTtest from
+You can install the development version (0.10.3) of BTtest from
 [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages('devtools')
 devtools::install_github('Paul-Haimerl/BTtest')
-#> Using GitHub PAT from the git credential store.
-#> Skipping install of 'BTtest' from a github remote, the SHA1 (ab5c0e4f) has not changed since last install.
-#>   Use `force = TRUE` to force installation
 library(BTtest)
 ```
 
-The stable version is available on CRAN:
+The stable version (0.10.2) is available on CRAN:
 
 ``` r
 install.packages('BTtest')
@@ -81,6 +78,13 @@ subject to a linear trend ($r_1$), the number of (ii) zero-mean $I(1)$
 factors ($r_2$) and the number of (iii) zero-mean $I(0)$ factors
 ($r_3$). Note that only one factor with a linear trend can be
 identified.
+
+The test statistic is constructed from `R` draws of an *i.i.d.* standard
+normal random variable. Consequently, the test results are
+nondeterministic and may vary slightly between executions, particularly
+when `R` is small. However, in practical applications this randomness
+can be eliminated by specifying a random seed `set.seed()` before
+invoking `BTtest()`.
 
 ## The Bai ([2004](https://doi.org/10.1016/j.jeconom.2003.10.022)) Integrated Information Criterion
 
